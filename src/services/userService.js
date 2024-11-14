@@ -20,7 +20,7 @@ class UserService {
 
         const secret_key="tnguyen";
         //const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
-        const token = jwt.sign({ userId: user._id }, secret_key, { expiresIn: "1h" });
+        const token = jwt.sign({ userId: user._id, email: user.email, name: user.name, sex: user.sex, point: user.point, partner:user.partner }, secret_key, { expiresIn: "1h" });
 
         return {
             message: "Login success",
