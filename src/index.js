@@ -4,7 +4,7 @@ const app = express();
 const bodyParser=require("body-parser");
 const userRoutes = require("./routes/userRoute");
 const giftRoutes = require("./routes/giftRoute");
-
+const taskRoutes =  require("./routes/taskRoute");
 
 const PORT=5000;
 const cors= require("cors");
@@ -17,3 +17,4 @@ app.listen(PORT, () =>{
 
 app.use("/api/user", userRoutes);
 app.use("/api/gift", giftRoutes);
+app.use("/api/task", taskRoutes);
