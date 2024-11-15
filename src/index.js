@@ -3,6 +3,8 @@ const app = express();
 
 const bodyParser=require("body-parser");
 const userRoutes = require("./routes/userRoute");
+const giftRoutes = require("./routes/giftRoute");
+
 
 const PORT=5000;
 const cors= require("cors");
@@ -14,3 +16,4 @@ app.listen(PORT, () =>{
 });
 
 app.use("/api/user", userRoutes);
+app.use("/api/gift", giftRoutes);
