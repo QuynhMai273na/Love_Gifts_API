@@ -28,5 +28,8 @@ class UserService {
             user: { id: user._id, email: user.email, name: user.name, sex: user.sex, point: user.point, partner:user.partner },
         };
     }
+    async getUser (userId) {
+        return await User.findById(userId);
+    }
 };
 module.exports = new UserService();
