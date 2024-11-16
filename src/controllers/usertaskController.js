@@ -23,6 +23,16 @@ class UsertaskController {
             res.status(500).json({error: error.message});
         }
     }
+
+    async completeUserTask(req, res) {
+        try {
+            const { usertaskId } = req.params;
+            const updatedUsertask = await usertaskService.completeUsertask(usertaskId);
+            res.json(updatedUsertask);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    }
 };
 
 module.exports = new UsertaskController();
