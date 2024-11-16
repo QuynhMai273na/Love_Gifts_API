@@ -10,6 +10,10 @@ class UsertaskService {
         return await newUsertask.save();
     }
 
+    async getUsertask (userId) {
+        return await Usertask.find({user: userId}).populate("task");
+    }
+
 }
 
 module.exports = new UsertaskService();
