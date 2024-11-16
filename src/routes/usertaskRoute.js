@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const usertaskController = require("../controller/usertaskController");
+const usertaskController = require("../controllers/usertaskController");
 
 router.post("/add", usertaskController.addUsertask);
 
