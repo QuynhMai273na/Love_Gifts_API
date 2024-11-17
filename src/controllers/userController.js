@@ -29,6 +29,16 @@ class UserController {
             res.status(500).json({ error: error.message });
         }
     }
+    async getUser(req, res) {
+        try {
+            const {userId}=req.params;
+            const user = await userService.getUser(userId);
+            res.json(user);
+
+        } catch(error) {
+            res.status(500).json({error:error.message});
+        }
+    }
 
 }
 
