@@ -32,10 +32,12 @@ class UserController {
     async getUser(req, res) {
         try {
             const {userId}=req.params;
-            const user = await userService.getUser(userId);
+            const user = await userService.getUserById(userId);
             res.json(user);
 
         } catch(error) {
+            console.log(error);
+            
             res.status(500).json({error:error.message});
         }
     }
