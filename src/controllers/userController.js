@@ -42,6 +42,31 @@ class UserController {
         }
     }
 
+    async updateUserPartner (req, res) {
+        try {
+            const {userId}=req.params;
+            const { partnerEmail } = req.body;
+            if (!partnerEmail) {
+                return res.status(400).json({ error: "Partner email is required" });
+            }
+            
+            const updatedUser = await userService.updateUserPartner(userId, partnerEmail);
+
+        // Trả về kết quả
+            return res.status(200).json({
+              message: "Partner updated successfully",
+              user: {
+                id: updatedUser._id,
+                name: updatedUser.name,
+                email: updatedUser.email,
+                partner: updatedUser.partner
+              }
+            });
+        } catch(error) {
+            res.status(500).json({error:error.message});
+        }
+    }
+
 }
 
 module.exports = new UserController();
