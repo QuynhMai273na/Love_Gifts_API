@@ -43,5 +43,19 @@ class UserService {
             throw new Error(error.message);
         }
     }
+
+    async getUserByEmail(userEmail) {
+        try {
+            console.log("Searching for email:", userEmail); // Kiểm tra email nhận được
+            const user = await User.findOne({ email: userEmail.trim() });
+            if (!user) throw new Error("User not found");
+            return user;
+        } catch (error) {
+            console.error("Error getting user:", error.message);
+            throw new Error(error.message);
+        }
+    }
+    
+    
 };
 module.exports = new UserService();
