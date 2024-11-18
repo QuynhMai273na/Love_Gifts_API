@@ -69,7 +69,6 @@ class UserService {
 
     async getUserByEmail(userEmail) {
         try {
-            console.log("Searching for email:", userEmail); // Kiểm tra email nhận được
             const user = await User.findOne({ email: userEmail.trim() });
             if (!user) throw new Error("User not found");
             return user;
