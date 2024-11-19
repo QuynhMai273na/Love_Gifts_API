@@ -1,6 +1,6 @@
 const cartService = require("../services/cartService");
 const userService = require("../services/userService");
-const userTaskService = require("../services/userTaskService");
+const userTaskService = require("../services/usertaskService");
  class PartnerCartController {
     async getPartnerCart(req, res) {
         try {
