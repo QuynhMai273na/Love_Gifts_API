@@ -10,6 +10,10 @@ class CartService {
         return await Cart.find({user, status: "pending"}).populate("gift");
     }
 
+    async getReceivedCartByUser(user){
+        return await Cart.find({user, status: "received"}).populate("gift");
+    }
+
     async removeFromCart (cartId) {
         try {
             return await Cart.findByIdAndDelete(cartId);

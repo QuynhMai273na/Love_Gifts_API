@@ -22,6 +22,15 @@ class CartController {
       res.status(500).json({ error: error.message });
     }
   }
+  async getReceivedCartByUser(req,res){
+    try{
+        const {user} = req.params;
+        const receivedCart = await cartService.getReceivedCartByUser(user);
+        res.json(receivedCart);
+    } catch (error){
+      res.status(500).json({error: error.message});
+    }
+  }
 
   async removeFromCart(req, res){
     try{
@@ -61,7 +70,10 @@ class CartController {
       user.point -= gift.point;
       await user.save();
 
-      await cartService.removeFromCart(cartId);
+
+      // await cartService.removeFromCart(cartId);
+      cartItem.status = "received";
+      await cartItem.save();
 
       return res
         .status(200)
@@ -73,5 +85,6 @@ class CartController {
         res.status(500).json({error: error.message});
     };
   }
+
 }
 module.exports = new CartController();
