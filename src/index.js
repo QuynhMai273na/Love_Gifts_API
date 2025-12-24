@@ -9,7 +9,7 @@ const usertaskRoutes = require("./routes/usertaskRoute");
 const cartRoutes = require("./routes/cartRoute");
 const partnerRoutes = require("./routes/partnerRoute");
 
-const PORT=5000;
+const PORT = process.env.PORT || 5000;
 const cors= require("cors");
 
 app.use(bodyParser.json());
